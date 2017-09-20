@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GudDay</string>
+
+    <string name="weather_banner_getLocation">获取当前位置</string>
+
+    <string name="weather_banner_win">南风  1级</string>
+
 </resources>
