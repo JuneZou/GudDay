@@ -1,4 +1,4 @@
-package com.june.gudday.http
+package com.june.gudday.http.service
 
 /**
  * Created by June on 2017/09/20.
