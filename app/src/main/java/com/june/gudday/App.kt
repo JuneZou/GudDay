@@ -1,6 +1,8 @@
 package com.june.gudday
 
 import android.app.Application
+import com.june.gudday.location.location.LocationManager
+import com.june.gudday.location.location.LocationService
 import com.june.gudday.utils.DisplayManager
 
 /**
@@ -9,8 +11,11 @@ import com.june.gudday.utils.DisplayManager
  */
 class App : Application() {
 
+    lateinit var locationservice: LocationService
+
     override fun onCreate() {
         super.onCreate()
         DisplayManager.init(this)
+        locationservice = LocationManager.init(this)
     }
 }
