@@ -3,6 +3,8 @@ package com.june.gudday.location.location
 import android.content.Context
 import android.util.Log
 import com.baidu.location.*
+import com.june.gudday.utils.LogUtils
+import io.reactivex.Observable
 
 /**
  * Created by June on 2017/08/18.
@@ -14,6 +16,7 @@ class LocationService(locationContext: Context) {
     var DIYoption:LocationClientOption? = null
     val objLock = Any()
     val listeners = ArrayList<LocationListener>()
+    var observable: Observable<BDLocation>? = null
 
     init {
 
@@ -43,7 +46,7 @@ class LocationService(locationContext: Context) {
         return option
     }
 
-    fun start() {
+    fun start(): LocationService {
         synchronized(objLock) {
 
             Log.e(LocationService::class.java.simpleName, client.isStarted.toString())
@@ -52,6 +55,7 @@ class LocationService(locationContext: Context) {
 //                client.start()
 //            }
         }
+        return this
     }
 
     fun stop() {
@@ -200,6 +204,11 @@ class LocationService(locationContext: Context) {
 
         listeners.iterator().forEach {
             it.onLocationComplete(location)
+        }
+
+        observable = Observable.create {
+            it.onNext(location)
+            LogUtils.e("start: ${location.addrStr}")
         }
 
         stop()
