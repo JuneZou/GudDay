@@ -11,11 +11,11 @@ import com.june.gudday.mvp.model.bean.WeatherBean
 interface WeatherContract {
 
     interface IView : BaseView<BasePresenter> {
-        fun loadData(weatherBean: WeatherBean)
+        fun onDataLoad(weatherBean: WeatherBean)
         fun onError()
     }
 
     interface IPresenter: BasePresenter {
-        fun requestData()
+        fun requestData(address: String)
     }
 }

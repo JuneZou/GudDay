@@ -44,9 +44,8 @@ class HomeBanner : FrameLayout {
         decorateView.gravity = Gravity.CENTER_HORIZONTAL
         decorateView.orientation = LinearLayout.VERTICAL
 
-        val headerIcon = ImageView(context)
-        headerIcon.layoutParams = LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        headerIcon.setImageResource(R.mipmap.home_page_header_icon)
+        val headerIcon = WeatherBackImageView(context)
+        headerIcon.layoutParams = LayoutParams(DisplayManager.getRealWidth(200) ?: 0, DisplayManager.getRealWidth(200) ?: 0)
 
         val titile = TextView(context)
 

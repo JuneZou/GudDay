@@ -12,8 +12,8 @@ class LogUtils {
     companion object {
         val PACKAGE_NAME = "GudDay"
 
-        fun e(log: String) {
-            Log.e(PACKAGE_NAME, log)
+        fun e(log: String?) {
+            Log.e(PACKAGE_NAME, log ?: "")
         }
 
     }

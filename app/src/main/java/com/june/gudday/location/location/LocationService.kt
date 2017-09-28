@@ -5,6 +5,8 @@ import android.util.Log
 import com.baidu.location.*
 import com.june.gudday.utils.LogUtils
 import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
+import io.reactivex.subjects.Subject
 
 /**
  * Created by June on 2017/08/18.
@@ -16,7 +18,7 @@ class LocationService(locationContext: Context) {
     var DIYoption:LocationClientOption? = null
     val objLock = Any()
     val listeners = ArrayList<LocationListener>()
-    var observable: Observable<BDLocation>? = null
+    var observable: Subject<BDLocation> = PublishSubject.create<BDLocation>().toSerialized()
 
     init {
 
@@ -59,6 +61,8 @@ class LocationService(locationContext: Context) {
     }
 
     fun stop() {
+
+        LogUtils.e("stop")
 
         synchronized(objLock) {
             if (client.isStarted) {
@@ -199,16 +203,17 @@ class LocationService(locationContext: Context) {
                 sb.append("无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机")
             }
 
-            Log.e(LocationService::class.java.simpleName, sb.toString())
+//            Log.e(LocationService::class.java.simpleName, sb.toString())
         }
 
         listeners.iterator().forEach {
             it.onLocationComplete(location)
         }
 
-        observable = Observable.create {
-            it.onNext(location)
-            LogUtils.e("start: ${location.addrStr}")
+        if (location == null && location?.locType != BDLocation.TypeServerError && location?.locType != BDLocation.TypeServerDecryptError) {
+            LogUtils.e("定位成功")
+            observable.onNext(location)
+        } else {
         }
 
         stop()

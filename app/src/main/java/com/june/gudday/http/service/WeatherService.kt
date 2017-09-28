@@ -6,6 +6,8 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.adapter.rxjava2.Result
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 /**
  * Created by June on 2017/09/21.
@@ -13,8 +15,8 @@ import retrofit2.http.GET
  */
 interface WeatherService {
 
-    @GET("weather?city=chengdu&key=c83259c51b6c463cbda596190784564d")
-    fun getWeatherData() : Observable<WeatherBean>
+    @GET("weather?")
+    fun getWeatherData(@Query("city") address: String, @Query("key") key: String = "c83259c51b6c463cbda596190784564d") : Observable<WeatherBean>
 
     @GET("weather?city=chengdu&key=c83259c51b6c463cbda596190784564d")
     fun getWeatherData2() : Call<Result<WeatherBean>>

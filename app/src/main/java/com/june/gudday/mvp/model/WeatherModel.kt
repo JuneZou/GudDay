@@ -10,7 +10,7 @@ import io.reactivex.Observable
  * Email:upupupgoing@126.com
  */
 class WeatherModel {
-    fun LoadData(): Observable<WeatherBean>{
-        return ApiController.weatherService.getWeatherData().io_to_main()
+    fun LoadData(address: String): Observable<WeatherBean>{
+        return ApiController.weatherService.getWeatherData(address).io_to_main()
     }
 }
