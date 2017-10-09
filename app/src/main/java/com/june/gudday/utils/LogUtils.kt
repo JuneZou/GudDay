@@ -12,10 +12,21 @@ class LogUtils {
     companion object {
         val PACKAGE_NAME = "GudDay"
 
+        var DEBUG_OPEN = true
+
         fun e(log: String?) {
-            Log.e(PACKAGE_NAME, log ?: "")
+            if (DEBUG_OPEN) {
+                Log.e(PACKAGE_NAME, log ?: "")
+            }
+        }
+
+        fun debug(log: String?) {
+            if (DEBUG_OPEN) {
+                Log.e(PACKAGE_NAME, log ?: "")
+            }
         }
 
     }
+
 
 }

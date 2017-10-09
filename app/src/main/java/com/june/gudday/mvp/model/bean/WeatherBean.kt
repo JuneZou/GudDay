@@ -11,7 +11,8 @@ data class WeatherBean(var HeWeather5: List<WeatherBeanImp> = ArrayList()) {
 
     data class WeatherBeanImp(var aqi: Aqi = Aqi(),
                               var daily_forecast: ArrayList<DeilyForecast>,
-                              var now: Now)
+                              var now: Now,
+                              var basic: Basic)
 
     data class Aqi(var city: City = City())
 
@@ -98,7 +99,9 @@ data class WeatherBean(var HeWeather5: List<WeatherBeanImp> = ArrayList()) {
                        var spd: String)
 
 
-
+    data class Basic(var city: String = "",
+                     var cnty: String = "",
+                     var id: String = "")
 
 }
 

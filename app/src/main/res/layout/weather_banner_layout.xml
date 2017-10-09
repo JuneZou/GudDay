@@ -1,64 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:id="@+id/weather_banner_bg"
-    android:background="@mipmap/weather_sun_morning">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weather_banner_city"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        android:textColor="#fff"
+        android:text="@string/weather_banner_getLocation" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:id="@+id/weather_banner_current_tmp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"
+        android:textColor="#fff"
+        android:id="@+id/weather_banner_tmp_interval"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@drawable/weather_banner_bg"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/weather_banner_city"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="#fff"
-            android:text="@string/weather_banner_getLocation"/>
+            android:id="@+id/weather_banner_des"/>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <View
+            android:layout_width="1px"
+            android:layout_height="10dp"
+            android:background="#fff"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"
+            android:layout_marginRight="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
             android:textColor="#fff"
-            android:textStyle="bold"
-            android:text="34°"
-            android:id="@+id/weather_banner_current_tmp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:textSize="12sp"
-                android:textColor="#fff"
-                android:text="晴"
-                android:id="@+id/weather_banner_des"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:textSize="12sp"
-                android:textColor="#fff"
-                android:text="优"
-                android:id="@+id/weather_banner_quality"/>
-
-        </LinearLayout>
+            android:id="@+id/weather_banner_quality"/>
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

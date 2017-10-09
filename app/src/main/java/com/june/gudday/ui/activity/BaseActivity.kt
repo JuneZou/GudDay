@@ -17,7 +17,7 @@ open class BaseActivity : Activity() {
     }
 
     protected fun setStatusBar() {
-        StatusBarUtil.setColor(this, Color.parseColor("#3F9BE9"), 0)
+        StatusBarUtil.setTranslucent(this, Color.parseColor("#3F9BE9"))
     }
 
     open fun initView() {

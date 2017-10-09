@@ -210,10 +210,11 @@ class LocationService(locationContext: Context) {
             it.onLocationComplete(location)
         }
 
-        if (location == null && location?.locType != BDLocation.TypeServerError && location?.locType != BDLocation.TypeServerDecryptError) {
+        if (location != null && location?.locType != BDLocation.TypeServerError && location?.locType != BDLocation.TypeServerDecryptError) {
             LogUtils.e("定位成功")
             observable.onNext(location)
         } else {
+            LogUtils.e("定位失败")
         }
 
         stop()

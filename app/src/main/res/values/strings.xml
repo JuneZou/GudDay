@@ -4,5 +4,8 @@
     <string name="weather_banner_getLocation">获取当前位置</string>
 
     <string name="weather_banner_win">南风  1级</string>
+    <string name="weather_quality_des">空气%s %s</string>
+    <string name="weather_tmp">%s°</string>
+    <string name="weather_tmp_interval">%s°/%s°</string>
 
 </resources>

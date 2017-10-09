@@ -23,6 +23,8 @@ object DisplayManager {
         disPlaySrceenWidth = disPlayMetric?.widthPixels
         disPlaySrceenHeight = disPlayMetric?.heightPixels
         disPlayDpi = disPlayMetric?.densityDpi
+
+        LogUtils.e("dpi: $disPlayDpi, screenwidth: $disPlaySrceenWidth, screenheight: $disPlaySrceenHeight")
     }
 
     fun getSrceenWidth() = disPlaySrceenWidth
