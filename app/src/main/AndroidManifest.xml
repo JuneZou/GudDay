@@ -28,6 +28,7 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".ui.activity.WeatherMainActivity" />
 
         <service
             android:name="com.baidu.location.f"

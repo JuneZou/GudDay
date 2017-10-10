@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="75" android:drawable="@mipmap/refresh1" />
+    <item android:duration="75" android:drawable="@mipmap/refresh2" />
+    <item android:duration="75" android:drawable="@mipmap/refresh3" />
+    <item android:duration="75" android:drawable="@mipmap/refresh4" />
+    <item android:duration="75" android:drawable="@mipmap/refresh5" />
+    <item android:duration="500" android:drawable="@mipmap/refresh6" />
+    <item android:duration="75" android:drawable="@mipmap/refresh8" />
+    <item android:duration="75" android:drawable="@mipmap/refresh9" />
+    <item android:duration="75" android:drawable="@mipmap/refresh10" />
+    <item android:duration="75" android:drawable="@mipmap/refresh11" />
+    <item android:duration="500" android:drawable="@mipmap/refresh12" />
+    <item android:duration="75" android:drawable="@mipmap/refresh14" />
+    <item android:duration="75" android:drawable="@mipmap/refresh15" />
+    <item android:duration="75" android:drawable="@mipmap/refresh16" />
+    <item android:duration="75" android:drawable="@mipmap/refresh17" />
+    <item android:duration="500" android:drawable="@mipmap/refresh18" />
+    <item android:duration="75" android:drawable="@mipmap/refresh20" />
+    <item android:duration="75" android:drawable="@mipmap/refresh21" />
+    <item android:duration="75" android:drawable="@mipmap/refresh22" />
+    <item android:duration="75" android:drawable="@mipmap/refresh23" />
+    <item android:duration="500" android:drawable="@mipmap/refresh24" />
+</animation-list>

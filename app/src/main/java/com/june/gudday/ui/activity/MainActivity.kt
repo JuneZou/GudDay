@@ -1,6 +1,7 @@
 package com.june.gudday.ui.activity
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import com.baidu.location.BDLocation
 import com.june.gudday.App
@@ -26,6 +27,10 @@ class MainActivity : Activity(), WeatherContract.IView, LocationListener {
         StatusBarUtil.transparentStatusBar(this)
 
         root.addView(homeBanner)
+
+        homeBanner.setOnClickListener {
+            startActivity(Intent(this, WeatherMainActivity::class.java))
+        }
 
         (application as App).locationservice.observable
                 .observeOn(Schedulers.io())

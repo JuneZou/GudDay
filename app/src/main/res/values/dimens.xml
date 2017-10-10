@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="refresh_view_hight">150dp</dimen>
+    <dimen name="refreshing_view_hight">80dp</dimen>
+    <dimen name="refresh_time_text_size">12sp</dimen>
+</resources>
