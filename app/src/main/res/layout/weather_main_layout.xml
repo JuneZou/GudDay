@@ -12,6 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/weather_main_refresh_root"
-        android:background="#123456"/>
+        android:background="#123456">
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.june.gudday.ui.homebanner.RefreshenableView>
 
 </merge>
