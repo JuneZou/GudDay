@@ -1,4 +1,4 @@
-package com.june.gudday.ui.homebanner
+package com.june.gudday.view.homebanner
 
 import android.animation.TypeEvaluator
 import android.view.animation.Interpolator

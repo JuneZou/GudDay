@@ -1,4 +1,4 @@
-package com.june.gudday.ui.activity
+package com.june.gudday.view.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -10,7 +10,7 @@ import com.june.gudday.location.location.LocationListener
 import com.june.gudday.mvp.contract.WeatherContract
 import com.june.gudday.mvp.model.bean.WeatherBean
 import com.june.gudday.mvp.presenter.HomePresenter
-import com.june.gudday.ui.homebanner.HomeBanner
+import com.june.gudday.view.homebanner.HomeBanner
 import com.june.gudday.utils.LogUtils
 import com.june.gudday.utils.StatusBarUtil
 import io.reactivex.schedulers.Schedulers

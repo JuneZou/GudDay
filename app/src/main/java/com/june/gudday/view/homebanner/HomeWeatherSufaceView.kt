@@ -1,4 +1,4 @@
-package com.june.gudday.ui.homebanner
+package com.june.gudday.view.homebanner
 
 import android.content.Context
 import android.view.SurfaceView

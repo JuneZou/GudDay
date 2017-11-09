@@ -1,4 +1,4 @@
-package com.june.gudday.ui.homebanner
+package com.june.gudday.view.homebanner
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -6,7 +6,6 @@ import android.content.Context
 import android.graphics.drawable.AnimationDrawable
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -62,9 +61,10 @@ class RefreshenableView : LinearLayout {
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+//        LogUtils.debug("onInterceptTouchEvent")
         motionX = ev.rawX
         motionY = ev.rawY
-        LogUtils.debug(super.onInterceptTouchEvent(ev).toString())
+        LogUtils.debug(super.onInterceptTouchEvent(ev).toString() + ev.action)
         when (ev.action) {
             MotionEvent.ACTION_DOWN -> {
                 mLastX = motionX
@@ -73,18 +73,19 @@ class RefreshenableView : LinearLayout {
             }
             MotionEvent.ACTION_MOVE -> {
                 if (COMPARE_RATE * Math.abs(motionY - mLastY) > Math.abs(mLastX - motionX) /*&& mCanPull*/) {
-                    LogUtils.debug("move")
+                    LogUtils.debug("move_true")
                     return true
                 }
+                LogUtils.debug("move_false")
                 return false
             }
         }
-
 
         return super.onInterceptTouchEvent(ev)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        LogUtils.debug("touch_true")
         when (event.action) {
             MotionEvent.ACTION_DOWN -> mLastY = event.rawY
             MotionEvent.ACTION_MOVE -> {

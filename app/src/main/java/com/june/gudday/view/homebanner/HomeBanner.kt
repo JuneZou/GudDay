@@ -1,27 +1,16 @@
-package com.june.gudday.ui.homebanner
+package com.june.gudday.view.homebanner
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.support.v4.view.ViewPager
 import android.util.AttributeSet
-import android.util.Log
 import android.view.Gravity
 import android.widget.FrameLayout
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.june.gudday.R
 import com.june.gudday.mvp.model.bean.WeatherBean
 import com.june.gudday.utils.DisplayManager
-import com.june.gudday.utils.LogUtils
-import io.reactivex.*
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
-import io.reactivex.schedulers.Schedulers
-import org.reactivestreams.Subscriber
-import org.reactivestreams.Subscription
 
 /**
  * Created by June on 2017/09/19.

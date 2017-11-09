@@ -1,13 +1,10 @@
-package com.june.gudday.ui.homebanner
+package com.june.gudday.view.homebanner
 
-import android.animation.TypeEvaluator
 import android.content.Context
 import android.graphics.*
-import android.view.animation.Interpolator
 import android.widget.ImageView
 import com.june.gudday.R
 import com.june.gudday.utils.DisplayManager
-import com.june.gudday.utils.LogUtils
 
 /**
  * Created by June on 2017/09/28.

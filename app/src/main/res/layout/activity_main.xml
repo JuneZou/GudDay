@@ -8,7 +8,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/root"/>
 
-    <include layout="@layout/home_top_layout"
-        android:visibility="gone"/>
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--<include layout="@layout/home_top_layout"/>-->
 
 </RelativeLayout>

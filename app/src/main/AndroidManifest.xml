@@ -16,10 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".App">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".view.activity.MainActivity">
 
         </activity>
-        <activity android:name=".ui.activity.StartActivity">
+        <activity android:name=".view.activity.StartActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ui.activity.WeatherMainActivity" />
+        <activity android:name=".view.activity.WeatherMainActivity" />
 
         <service
             android:name="com.baidu.location.f"

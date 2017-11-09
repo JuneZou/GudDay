@@ -1,4 +1,4 @@
-package com.june.gudday.ui.activity
+package com.june.gudday.view.activity
 
 import android.app.Activity
 import android.os.Bundle
