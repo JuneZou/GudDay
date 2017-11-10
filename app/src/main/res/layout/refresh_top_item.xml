@@ -3,7 +3,6 @@
     android:layout_width="fill_parent"
     android:layout_height="@dimen/refresh_view_hight"
     android:gravity="center_horizontal"
-    android:background="#654321"
     android:orientation="vertical">
 
     <ImageView

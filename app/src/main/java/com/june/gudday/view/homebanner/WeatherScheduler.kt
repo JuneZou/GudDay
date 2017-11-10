@@ -27,7 +27,7 @@ class WeatherScheduler(var min: Float, var max: Float) {
         get() {
             if (field == null) {
                 field = TypeEvaluator{
-                    fraction, startValue, endValue ->  min + (max - min) * fraction }
+                    fraction, _, _ ->  min + (max - min) * fraction }
             }
             return field
         }

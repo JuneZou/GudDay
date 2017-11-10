@@ -26,7 +26,6 @@ class HomeBanner : FrameLayout {
         initView()
     }
 
-
     fun initView() {
 
         viewPager.layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, DisplayManager.getRealHeight(500) ?: 0)
@@ -59,10 +58,6 @@ class HomeBanner : FrameLayout {
 
         setWillNotDraw(false)
 
-    }
-
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
     }
 
     fun updateWeatherData(weatherBean: WeatherBean) {

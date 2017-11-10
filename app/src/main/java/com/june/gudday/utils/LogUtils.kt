@@ -26,6 +26,11 @@ class LogUtils {
             }
         }
 
+        fun singleE(tag: String?, log: String?, boolean: Boolean = false) {
+            if (boolean) {
+                Log.e(PACKAGE_NAME + tag, log ?: "")
+            }
+        }
     }
 
 
