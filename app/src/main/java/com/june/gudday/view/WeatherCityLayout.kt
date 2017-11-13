@@ -1,4 +1,4 @@
-package com.june.gudday.ui.view
+package com.june.gudday.view
 
 import android.content.Context
 import android.util.AttributeSet

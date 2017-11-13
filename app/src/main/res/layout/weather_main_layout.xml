@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<<<<<<< HEAD
-    <FrameLayout
-=======
     <include
         android:id="@+id/weather_main_refresh_item"
         layout="@layout/refresh_top_item" />
 
-    <com.june.gudday.view.homebanner.RefreshenableView
->>>>>>> 57a2e76a0c89ba556587f7630f89d1a4f9475c3b
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <include
-            android:id="@+id/weather_main_refresh_item"
-            layout="@layout/refresh_top_item" />
-
-        <com.june.gudday.ui.RefreshenableView
+        <com.june.gudday.view.RefreshenableView
             android:id="@+id/weather_main_refresh_root"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_above="@id/weather_main_bottom">
 
-            <android.support.v4.view.ViewPager
+            <!--<com.june.gudday.view.TestViewPager-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/weather_viewpager"/>-->
+
+            <com.june.gudday.view.TestTextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/weather_viewpager"/>
-        </com.june.gudday.ui.RefreshenableView>
+                android:layout_height="match_parent"
+                android:clickable="true"/>
 
-<<<<<<< HEAD
-    </FrameLayout>
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"/>-->
 
-    <include layout="@layout/weather_main_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-=======
-    </com.june.gudday.view.homebanner.RefreshenableView>
->>>>>>> 57a2e76a0c89ba556587f7630f89d1a4f9475c3b
+        </com.june.gudday.view.RefreshenableView>
 
-</LinearLayout>
+        <include layout="@layout/weather_main_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/weather_main_bottom"/>
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>

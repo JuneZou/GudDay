@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.baidu.location.BDLocation
-import com.june.gudday.App
+import com.june.gudday.app.App
 import com.june.gudday.R
 import com.june.gudday.location.location.LocationListener
 import com.june.gudday.mvp.contract.WeatherContract

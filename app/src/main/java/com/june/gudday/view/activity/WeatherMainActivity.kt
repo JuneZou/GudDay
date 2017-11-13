@@ -24,11 +24,8 @@ class WeatherMainActivity : Activity(){
         setContentView(R.layout.weather_main_layout)
 
         weather_main_refresh_root.init(weather_main_refresh_item as LinearLayout)
-//        test.setOnClickListener {
-//            Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
-//        }
 
-
+//        weather_viewpager.adapter =
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {

@@ -17,4 +17,9 @@ class HomePresenter(var view: WeatherContract.IView) : WeatherContract.IPresente
                     view.onDataLoad(it)
                 }
     }
+
+    override fun requestCityList() {
+
+    }
+
 }

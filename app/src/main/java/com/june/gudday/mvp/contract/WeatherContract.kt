@@ -17,5 +17,7 @@ interface WeatherContract {
 
     interface IPresenter: BasePresenter {
         fun requestData(address: String)
+
+        fun requestCityList()
     }
 }

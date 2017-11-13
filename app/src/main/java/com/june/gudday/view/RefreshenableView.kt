@@ -1,4 +1,4 @@
-package com.june.gudday.ui
+package com.june.gudday.view
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -71,6 +71,7 @@ class RefreshenableView : LinearLayout {
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+
         LogUtils.singleE(TAG, "onInterceptTouchEvent, ${ev.action}", IS_DEBUG)
         if (ev.action == MotionEvent.ACTION_CANCEL || ev.action == MotionEvent.ACTION_UP) {
             LogUtils.singleE(TAG, "Intercept done!", IS_DEBUG)
@@ -89,13 +90,11 @@ class RefreshenableView : LinearLayout {
             }
         }
 
-        if (ev.action == MotionEvent.ACTION_UP) {
-        }
-
         when (ev.action) {
             MotionEvent.ACTION_DOWN -> {
                 mLastX = ev.x
-                mLastY = ev.y
+                mLastY = ev.rawY
+                LogUtils.singleE(TAG, "Intercept down false!", IS_DEBUG)
                 return false
             }
             MotionEvent.ACTION_MOVE -> {
@@ -107,29 +106,33 @@ class RefreshenableView : LinearLayout {
                 if (yDiff > mTouchSlop && COMPARE_RATE * yDiff > xDiff) {
                     LogUtils.singleE(TAG, "move", IS_DEBUG)
                     isBeingDrag = true
-                    return true
+//                    return true
                 } else if (xDiff > mTouchSlop) {
                     isUnableDrag = true
-                    return false
+//                    return false
                 }
 
             }
         }
-        LogUtils.singleE(TAG, "${isBeingDrag}", IS_DEBUG)
+        LogUtils.singleE(TAG, "onInterceptTouchEventResult${isBeingDrag}", IS_DEBUG)
         return isBeingDrag
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        LogUtils.singleE(TAG, "onTouchEvent${event.action}", IS_DEBUG)
         when (event.action) {
-            MotionEvent.ACTION_DOWN -> mLastY = event.rawY
-            MotionEvent.ACTION_MOVE -> {
-                doMovent(event.rawY - mLastY)
+            MotionEvent.ACTION_DOWN -> {
                 mLastY = event.rawY
+            }
+            MotionEvent.ACTION_MOVE -> {
+                LogUtils.e("distance:${event.rawY - mLastY}")
+                doMovent(event.rawY - mLastY)
             }
             MotionEvent.ACTION_UP -> {
                 fling()
             }
         }
+        mLastY = event.rawY
         return true
     }
 
@@ -148,18 +151,19 @@ class RefreshenableView : LinearLayout {
         }
     }
 
-    fun fling() {
-
+    private fun fling() {
 //        startRefreshAnimation()
-
         reutunInitState()
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        LogUtils.singleE(TAG, "dispatchTouchEvent, ${ev?.action}", IS_DEBUG)
         if (ev?.action == MotionEvent.ACTION_DOWN) {
             resetTouch()
         }
-        return super.dispatchTouchEvent(ev)
+        val result = super.dispatchTouchEvent(ev)
+        LogUtils.singleE(TAG, "dispatchTouchEvent, ${result}", IS_DEBUG)
+        return result
     }
 
     fun reutunInitState() {

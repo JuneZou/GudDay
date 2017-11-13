@@ -1,4 +1,4 @@
-package com.june.gudday
+package com.june.gudday.app
 
 import android.app.Application
 import com.june.gudday.location.location.LocationManager

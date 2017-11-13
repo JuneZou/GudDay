@@ -3,7 +3,7 @@ package com.june.gudday.view.homebanner
 import android.content.Context
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import com.june.gudday.App
+import com.june.gudday.app.App
 import com.june.gudday.R
 import com.june.gudday.mvp.model.bean.WeatherBean
 import com.june.gudday.utils.LogUtils
