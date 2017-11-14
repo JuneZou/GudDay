@@ -6,6 +6,8 @@ import android.os.Bundle
 import com.baidu.location.BDLocation
 import com.june.gudday.app.App
 import com.june.gudday.R
+import com.june.gudday.db.DBHelper
+import com.june.gudday.db.base.DBBaseService
 import com.june.gudday.location.location.LocationListener
 import com.june.gudday.mvp.contract.WeatherContract
 import com.june.gudday.mvp.model.bean.WeatherBean
@@ -18,8 +20,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity(), WeatherContract.IView, LocationListener {
 
-    val homePresenter: HomePresenter by lazy { HomePresenter(this)}
-    val homeBanner: HomeBanner by lazy { HomeBanner(this)}
+    private val homePresenter: HomePresenter by lazy { HomePresenter(this)}
+    private val homeBanner: HomeBanner by lazy { HomeBanner(this)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,16 @@ class MainActivity : Activity(), WeatherContract.IView, LocationListener {
                     homePresenter.requestData(it.city) }
 
         (application as App).locationservice.registerDefaultListener().start()
+
+//        Log.e("test", getDatabasePath("").absolutePath)
+
+        val service: DBBaseService = DBHelper.Builder(this)
+                .name("weathercity")
+                .versionCode(1)
+                .build()
+                .create(DBBaseService::class.java)
+
+        service.excelSQL("create table if not exists test1(id integer primary key)")
     }
 
     override fun onDataLoad(weatherBean: WeatherBean) {

@@ -13,4 +13,8 @@ class WeatherModel {
     fun LoadData(address: String): Observable<WeatherBean>{
         return ApiController.weatherService.getWeatherData(address).io_to_main()
     }
+
+    fun getAllCitiesFromDB() {
+
+    }
 }

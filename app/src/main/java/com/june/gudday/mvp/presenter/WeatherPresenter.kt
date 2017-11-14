@@ -25,4 +25,7 @@ class WeatherPresenter(var view: WeatherContract.IView) : WeatherContract.IPrese
                 })
 
     }
+
+    override fun requestCityList() {
+    }
 }

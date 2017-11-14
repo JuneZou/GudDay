@@ -30,6 +30,12 @@ android {
             res.srcDirs = ['src/main/res']
         }
     }
+
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.june.gudday.greendao.gen'
+        targetGenDir 'src/main/java'
+    }
 }
 
 dependencies {
