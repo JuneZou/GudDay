@@ -5,5 +5,5 @@ package com.june.gudday.db.base
  * Email:upupupgoing@126.com
  */
 interface DBBaseService {
-    fun excelSQL(sql: String)
+    fun excelSQL(sql: String) : String
 }

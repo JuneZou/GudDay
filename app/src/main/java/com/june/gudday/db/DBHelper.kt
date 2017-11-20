@@ -14,20 +14,12 @@ import java.lang.reflect.Proxy
 class DBHelper(var path: String, var version: Int, var context: Context) {
     val TAG = "DBHelper"
     val baseUrl = "/data/data/" + context.packageName + "/databases/"
-    var db: SQLiteDatabase? = null
 
-    fun <T> create(service: Class<T>) : T {
-
+    fun create() :  SQLiteDatabase{
         if (!File(baseUrl).exists()) {
             File(baseUrl).mkdirs()
         }
-
-        db = SQLiteDatabase.openOrCreateDatabase(baseUrl + path + ".db", null)
-        return Proxy.newProxyInstance(service.classLoader, arrayOf<Class<*>>(service),
-                {
-                    proxy, method, args ->
-                    db?.execSQL(args[0].toString())
-                }) as T
+        return SQLiteDatabase.openOrCreateDatabase(baseUrl + path + ".db", null)
     }
 
     class Builder(var context: Context) {
@@ -46,8 +38,8 @@ class DBHelper(var path: String, var version: Int, var context: Context) {
             return this
         }
 
-        fun build() : DBHelper {
-            return DBHelper(path, versionNumber, context)
+        fun build() : SQLiteDatabase {
+            return DBHelper(path, versionNumber, context).create()
         }
     }
 }

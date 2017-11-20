@@ -44,13 +44,6 @@ class MainActivity : Activity(), WeatherContract.IView, LocationListener {
 
 //        Log.e("test", getDatabasePath("").absolutePath)
 
-        val service: DBBaseService = DBHelper.Builder(this)
-                .name("weathercity")
-                .versionCode(1)
-                .build()
-                .create(DBBaseService::class.java)
-
-        service.excelSQL("create table if not exists test1(id integer primary key)")
     }
 
     override fun onDataLoad(weatherBean: WeatherBean) {

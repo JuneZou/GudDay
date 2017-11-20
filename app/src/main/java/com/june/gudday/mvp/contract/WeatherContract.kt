@@ -19,5 +19,8 @@ interface WeatherContract {
         fun requestData(address: String)
 
         fun requestCityList()
+
+        override fun detachView() {
+        }
     }
 }
