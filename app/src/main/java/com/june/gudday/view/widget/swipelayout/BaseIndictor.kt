@@ -11,4 +11,12 @@ abstract class BaseIndictor {
 
     abstract fun createView(layoutInflater: LayoutInflater, viewGroup: ViewGroup) : View
 
+    abstract fun onAction()
+
+    abstract fun unAction()
+
+    abstract fun onRestore()
+
+    abstract fun onLoading()
+
 }

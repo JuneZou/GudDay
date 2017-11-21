@@ -2,6 +2,7 @@ package com.june.gudday.view.widget.swipelayout
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.*
 import android.widget.OverScroller
 import com.june.gudday.R
@@ -47,12 +48,12 @@ class SwipeLayout : ViewGroup {
     //headerView
     private lateinit var mHeaderView: View
     private var mHeaderIndictor: BaseIndictor? = null
-    private lateinit var mHeadClassName: String /*不用layout而用View类来实现的原因在于方便控制头尾View自己的交互逻辑*/
+    private var mHeadClassName: String = "" /*不用layout而用View类来实现的原因在于方便控制头尾View自己的交互逻辑*/
 
     //footerView
     private lateinit var mFooterView: View
     private var mFooterIndictor: BaseIndictor? = null
-    private lateinit var mFootClassName: String /*不用layout而用View类来实现的原因在于方便控制头尾View自己的交互逻辑*/
+    private var mFootClassName: String = "" /*不用layout而用View类来实现的原因在于方便控制头尾View自己的交互逻辑*/
 
     private val mInflate: LayoutInflater by lazy { LayoutInflater.from(context) }
 
@@ -111,9 +112,11 @@ class SwipeLayout : ViewGroup {
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        (0..(if (childCount > 0) childCount else 0))
-                .map { getChildAt(it) }
-                .forEach { measureChild(it, widthMeasureSpec, heightMeasureSpec) }
+        if (childCount > 0) {
+            (0 until childCount)
+                    .map { getChildAt(it) }
+                    .forEach { measureChild(it, widthMeasureSpec, heightMeasureSpec) }
+        }
 
         mHeaderLoadPosition = mHeaderView.measuredHeight + (0.3 * mHeaderView.measuredHeight).toInt()
         mFooterLoadPosition = mHeaderView.measuredHeight + (0.3 * mHeaderView.measuredHeight).toInt()
@@ -199,7 +202,7 @@ class SwipeLayout : ViewGroup {
                 if (mActivePointId != pointerId) {
                     mLastX = ev.getX(pointerIndex)
                     mLastY = ev.getY(pointerIndex)
-                    mActivePointId = pointerId
+                    mActivePointId = ev.getPointerId(pointerIndex)
                 }
             }
 
@@ -217,17 +220,14 @@ class SwipeLayout : ViewGroup {
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
                 return true
             }
-
             MotionEvent.ACTION_MOVE -> {
                 if (!isPullDownEnable || !isPullUpEnable) {
                     return true
                 }
-
                 if (isNeedInterept) {
                     if (mStatus == PULL_DOWN && scrollY > 0) {
                         return true
@@ -235,17 +235,17 @@ class SwipeLayout : ViewGroup {
                     if (mStatus == PULL_UP && scrollY < 0) {
                         return true
                     }
-
                     scrollBy(0, -getMoveFloat(yVelocity, deltaY).toInt())
+                    updateIndicator()
+                    invalidate()
                 } else {
                     event.action = MotionEvent.ACTION_DOWN
                     dispatchTouchEvent(event)
                     return true
                 }
             }
-
             MotionEvent.ACTION_UP -> {
-                autoBackToPosition()
+//                autoBackToPosition()
             }
         }
 
@@ -267,6 +267,11 @@ class SwipeLayout : ViewGroup {
     }
 
     private fun isNeedIntercept() : Boolean {
+
+//        if (isLoading) {
+//            return false
+//        }
+
         if (deltaY > 0 && isScrollOnTop() || scrollY < -10) {
             mStatus = PULL_DOWN
             return true
@@ -294,27 +299,29 @@ class SwipeLayout : ViewGroup {
     private fun autoBackToPosition() {
         if (mStatus == PULL_DOWN && Math.abs(scrollY) < mHeaderLoadPosition) {
             autoBackToHoldPosition()
-        } else if (mStatus == PULL_DOWN && Math.abs(scrollY) > mHeaderLoadPosition){
+        } else if (mStatus == PULL_DOWN && Math.abs(scrollY) >= mHeaderLoadPosition){
             autoBackToLoadPosition()
         } else if (mStatus == PULL_UP && Math.abs(scrollY) < mFooterLoadPosition) {
             autoBackToHoldPosition()
-        } else if (mStatus == PULL_UP && Math.abs(scrollY) > mFooterLoadPosition) {
+        } else if (mStatus == PULL_UP && Math.abs(scrollY) >= mFooterLoadPosition) {
             autoBackToLoadPosition()
         }
     }
 
     private fun autoBackToHoldPosition() {
         mScoller.startScroll(0, scrollY, 0, -scrollY, SCROLLER_DURATION)
-        postDelayed({
+        invalidate()
+        this.postDelayed({
             restoreIndicator()
             mStatus = IDLE
-        }, SCROLLER_DURATION.toLong())
+        }, 500)
     }
 
     private fun autoBackToLoadPosition() {
         when (mStatus) {
             PULL_DOWN -> {
                 mScoller.startScroll(0, scrollY, 0, -scrollY - mHeaderLoadPosition, SCROLLER_DURATION)
+                invalidate()
                 if (!isLoading) {
                     isLoading = true
                     listener?.onRefresh()
@@ -323,24 +330,43 @@ class SwipeLayout : ViewGroup {
 
             PULL_UP -> {
                 mScoller.startScroll(0, scrollY, 0, -scrollY + mFooterLoadPosition, SCROLLER_DURATION)
+                invalidate()
                 if (!isLoading) {
                     isLoading = true
                     listener?.onLoadMore()
                 }
             }
         }
+        loadingIndicator()
+    }
 
+    private fun updateIndicator() {
+        if (mStatus == PULL_DOWN && deltaY > 0) {
+            if (Math.abs(scrollY) > mHeaderLoadPosition) {
+                mHeaderIndictor?.onAction()
+            }
+        } else if (mStatus == PULL_DOWN && deltaY < 0) {
+            if (Math.abs(scrollY) < mHeaderLoadPosition) {
+                mHeaderIndictor?.unAction()
+            }
+        }
     }
 
     override fun computeScroll() {
-        if (!mScoller.computeScrollOffset()) {
+        if (mScoller.computeScrollOffset()) {
             scrollTo(0, mScoller.currY)
             invalidate()
         }
     }
 
     private fun restoreIndicator() {
+        mHeaderIndictor?.onRestore()
+    }
 
+    private fun loadingIndicator() {
+        if (mStatus == PULL_DOWN) {
+            mHeaderIndictor?.onLoading()
+        }
     }
 
     interface OnRefreshListener {

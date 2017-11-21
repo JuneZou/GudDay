@@ -6,4 +6,11 @@
         <attr name="footer_indicator" format="string"/>
     </declare-styleable>
 
+    <declare-styleable name="circleView">
+        <attr name="paintColor" format="color"/>
+        <attr name="circleWidth" format="dimension"/>
+        <attr name="circleHeight" format="dimension"/>
+        <attr name="circleSize" format="dimension"/>
+    </declare-styleable>
+
 </resources>

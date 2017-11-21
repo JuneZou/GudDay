@@ -13,6 +13,20 @@ class DefaultFootIndicator : BaseIndictor() {
     val TAG = "DefaultHeadIndicator"
 
     override fun createView(layoutInflater: LayoutInflater, viewGroup: ViewGroup): View {
-        return layoutInflater.inflate(R.layout.weather_main_bottom, viewGroup, false)
+        val view = layoutInflater.inflate(R.layout.refresh_top_item, viewGroup, true) as ViewGroup
+        val child = view.getChildAt(view.childCount - 1)
+        return child
+    }
+
+    override fun onAction() {
+    }
+
+    override fun unAction() {
+    }
+
+    override fun onRestore() {
+    }
+
+    override fun onLoading() {
     }
 }
