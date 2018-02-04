@@ -25,7 +25,7 @@ class WeatherDesLayout : LinearLayout {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     LogUtils.e("address: ${it.addrStr}, city: ${it.city}")
-                    weather_banner_city.text = it.district.toString().plus(it.street)
+                    weather_banner_city.text = it.district?.toString().plus(it.street)
                 }
     }
 

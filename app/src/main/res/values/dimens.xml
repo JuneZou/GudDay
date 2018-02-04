@@ -3,4 +3,16 @@
     <dimen name="refresh_view_hight">150dp</dimen>
     <dimen name="refreshing_view_hight">80dp</dimen>
     <dimen name="refresh_time_text_size">12sp</dimen>
+
+    <dimen name="city_manager_appbar_textSize">13sp</dimen>
+
+    <dimen name="city_manager_city_size">20sp</dimen>
+    <dimen name="city_manager_province_size">11sp</dimen>
+    <dimen name="city_manager_des_size">11sp</dimen>
+    <dimen name="city_manager_tmp_size">35sp</dimen>
+
+    <dimen name="city_add_btn_size">40dp</dimen>
+
+    <dimen name="default_history_size">13sp</dimen>
+
 </resources>

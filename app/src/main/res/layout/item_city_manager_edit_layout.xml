@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/city_manager_city_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/city_manager_card_bg"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/city_manager_city_edit_delete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:src="@mipmap/city_manager_delete_icon" />
+
+    <LinearLayout
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/city_manager_city_edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/city_manager_color"
+            android:textSize="@dimen/city_manager_city_size" />
+
+        <TextView
+            android:id="@+id/city_manager_province_edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/city_manager_color"
+            android:textSize="@dimen/city_manager_province_size" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/city_manager_city_isLocation"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_vertical" />
+
+    <ImageView
+        android:id="@+id/city_manager_city_weather_edit_drag"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/city_manager_drag_icon" />
+
+</LinearLayout>
+

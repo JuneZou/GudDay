@@ -6,8 +6,6 @@ import android.os.Bundle
 import com.baidu.location.BDLocation
 import com.june.gudday.app.App
 import com.june.gudday.R
-import com.june.gudday.db.DBHelper
-import com.june.gudday.db.base.DBBaseService
 import com.june.gudday.location.location.LocationListener
 import com.june.gudday.mvp.contract.WeatherContract
 import com.june.gudday.mvp.model.bean.WeatherBean
@@ -38,11 +36,14 @@ class MainActivity : Activity(), WeatherContract.IView, LocationListener {
                 .observeOn(Schedulers.io())
                 .subscribe {
                     LogUtils.e("address: ${it.addrStr}, city: ${it.city}")
+
+                    if (it.city == null) {
+                        return@subscribe
+                    }
+
                     homePresenter.requestData(it.city) }
 
         (application as App).locationservice.registerDefaultListener().start()
-
-//        Log.e("test", getDatabasePath("").absolutePath)
 
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/weather_main_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -19,30 +20,21 @@
             android:layout_height="match_parent"
             android:layout_above="@id/weather_main_bottom">
 
-            <!--<com.june.gudday.view.TestViewPager-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:id="@+id/weather_viewpager"/>-->
-
-            <com.june.gudday.view.TestTextView
+            <android.support.v4.view.ViewPager
+                android:id="@+id/weather_main_cities"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clickable="true"/>
-
-            <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
+                android:layout_height="wrap_content" />
 
         </com.june.gudday.view.RefreshenableView>
 
-        <include layout="@layout/weather_main_bottom"
+        <include
+            android:id="@+id/weather_main_bottom"
+            layout="@layout/weather_main_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/weather_main_bottom"/>
+            android:layout_alignParentBottom="true" />
 
     </RelativeLayout>
-
 
 
 </FrameLayout>

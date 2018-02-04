@@ -5,5 +5,4 @@ package com.june.gudday.mvp.base
  * Email:upupupgoing@126.com
  */
 interface BasePresenter {
-    fun detachView()
 }

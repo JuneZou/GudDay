@@ -2,6 +2,7 @@ package com.june.gudday.view.homebanner
 
 import android.content.Context
 import android.graphics.*
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.june.gudday.R
 import com.june.gudday.utils.DisplayManager
@@ -100,6 +101,7 @@ class WeatherBackImageView(context: Context?) : ImageView(context) {
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
+
 //        LogUtils.e("left_draw, w: ${left_bg.width}, h:${left_bg.height}")
 //        LogUtils.e("right_draw, w: ${right_bg.width}, h:${right_bg.height}")
 //        LogUtils.e("bg, w: ${bg.width}, h:${bg.height}")

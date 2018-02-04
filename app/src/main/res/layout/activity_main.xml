@@ -3,16 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.june.gudday.view.widget.swipelayout.SwipeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/root"/>
-
-    </com.june.gudday.view.widget.swipelayout.SwipeLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/root"/>
 
     <!--<fragment-->
         <!--android:layout_width="match_parent"-->

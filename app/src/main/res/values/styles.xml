@@ -8,4 +8,26 @@
     <style name="ViewBigPicTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <declare-styleable name="AutoFlowLayout">
+        <attr name="space_width" format="dimension"/>
+        <attr name="space_height" format="dimension"/>
+        <attr name="space_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="AutoFlowTextView">
+        <attr name="hasCircle" format="boolean"/>
+        <attr name="icon_width" format="dimension"/>
+        <attr name="icon_height" format="dimension"/>
+        <attr name="icon_paintSize" format="dimension"/>
+        <attr name="icon_color" format="color"/>
+        <attr name="circle_color" format="color"/>
+    </declare-styleable>
+
+
 </resources>

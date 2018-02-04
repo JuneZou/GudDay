@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F6F6"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/city_manager_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/activity_search_back_btn"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:src="@mipmap/back_icon" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/activity_search_back_btn"
+            android:layout_toRightOf="@id/activity_search_back_btn"
+            android:background="@drawable/city_search_bg">
+
+            <EditText
+                android:id="@+id/activity_search_cityName_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_toLeftOf="@id/activity_search_clear_btn"
+                android:layout_toStartOf="@id/activity_search_clear_btn"
+                android:background="@null"
+                android:drawableLeft="@mipmap/city_search_icon_gray"
+                android:drawableStart="@mipmap/city_search_icon_gray"
+                android:hint="@string/search_nation_city"
+                android:imeActionLabel="搜索"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:textColor="@color/city_manager_color"
+                android:textCursorDrawable="@drawable/city_search_city_name_cursor_color"
+                android:textSize="@dimen/city_manager_des_size" />
+
+            <ImageView
+                android:id="@+id/activity_search_clear_btn"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:src="@mipmap/ring_delete_icon_gray"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/default_history_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/search_history"
+                android:textColor="#515151"
+                android:textSize="@dimen/default_history_size" />
+
+            <ImageView
+                android:id="@+id/default_history_clean"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/clean_icon" />
+
+            <com.june.gudday.view.autoflow.AutoFlowLayout
+                android:id="@+id/city_search_history_autoflow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/default_history_clean"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                app:space_height="8dp"
+                app:space_width="8dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:id="@+id/city_search_recyclerView"/>
+
+</FrameLayout>

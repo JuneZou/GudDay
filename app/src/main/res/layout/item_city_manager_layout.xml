@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/city_manager_card_bg"
+    android:id="@+id/city_manager_city_layout"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/city_manager_city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/city_manager_color"
+                android:textSize="@dimen/city_manager_city_size" />
+
+            <TextView
+                android:id="@+id/city_manager_province_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/city_manager_color"
+                android:textSize="@dimen/city_manager_province_size" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/city_manager_city_isLocation"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/city_manager_city_weather_indicator"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/weather_sun_icon" />
+
+        <TextView
+            android:id="@+id/city_manager_city_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:textColor="@color/city_manager_color"
+            android:textSize="@dimen/city_manager_tmp_size" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@color/city_manager_divider_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/city_manager_des"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="空气良 | 湿度62% | 西北风2级"
+            android:textColor="@color/city_manager_color"
+            android:textSize="@dimen/city_manager_des_size" />
+
+        <TextView
+            android:id="@+id/city_manager_temp_section"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical"
+            android:text="13 / 2℃"
+            android:textColor="@color/city_manager_color"
+            android:textSize="@dimen/city_manager_des_size" />
+
+    </LinearLayout>
+
+</LinearLayout>

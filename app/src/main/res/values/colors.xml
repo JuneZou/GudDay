@@ -5,4 +5,11 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="top_layout_bg">#3F9BE9</color>
+
+    <color name="white">#fff</color>
+
+    <color name="city_manager_color">#666666</color>
+    <color name="city_manager_divider_color">#F5F5F5</color>
+
+    <color name="city_manager_card_outline">#F0F0F0</color>
 </resources>
